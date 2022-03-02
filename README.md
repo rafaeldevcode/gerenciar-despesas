@@ -1,5 +1,5 @@
 <div align="center">
-    <img align="center" width="150" alt="Logo Projeto" src="https://raw.githubusercontent.com/rafaeldevcode/controle-contas/main/public/assets/images/logo.png">
+    <img align="center" width="200" alt="Logo Projeto" src="https://raw.githubusercontent.com/rafaeldevcode/controle-contas/main/public/assets/images/logo.png">
 </div>
 
 <h1 align="center">Controle de Contas</h1>
