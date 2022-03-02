@@ -7,6 +7,6 @@
 
     <link rel="stylesheet" type="text/css" href="<?php Routers::asset('assets/css/style.css'); ?>">
     <meta name="author" content="Rafael Vieira - github.com/rafaeldevcode">
-    <title><?php $title ?></title>
+    <title><?php echo $title ?></title>
 
 </head>

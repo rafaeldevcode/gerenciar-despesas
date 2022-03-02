@@ -6,8 +6,8 @@
             <img src="<?php Routers::asset('assets/images/logo.png') ?>" alt="Logo">
         </span>
 
-        <span class="logout">
-            <a title="Fazer Logout" href="/logout">Sair</a>
-        </span>
+        <?php
+            if(isset($_SESSION['logged'])):  require_once __DIR__ . '/menu.php'; endif
+        ?>
     </section>
 </header>

@@ -54,5 +54,10 @@
 
     <script type="text/javascript" src="https://kit.fontawesome.com/b0387bb217.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="<?php Routers::asset('assets/js/funcoes.js') ?>"></script>
+
+    <script type="text/javascript">
+        exibirPass();
+        getFields();
+    </script>
 </body>
 </html>
