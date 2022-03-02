@@ -15,7 +15,9 @@
 
         public function handle(ServerRequestInterface $request): ResponseInterface
         {
-            $html = Routers::route('login/index.php', []);
+            $html = Routers::route('login/index.php', [
+                'title' => 'Login',
+            ]);
 
             return new Response(200, [], $html);
         }

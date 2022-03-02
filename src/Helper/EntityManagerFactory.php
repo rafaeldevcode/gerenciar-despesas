@@ -30,12 +30,13 @@
 
             $mysql = [
                 'driver'   => 'pdo_mysql',
-                'host'     => '',
-                'dbname'   => '',
-                'user'     => '',
-                'password' => '',
+                'host'     => '127.0.0.1',
+                'port'     => '3306',
+                'dbname'   => 'controle_contas',
+                'user'     => 'root',
+                'password' => 'root',
             ];
 
-            return EntityManager::create($sqlite, $config);
+            return EntityManager::create($mysql, $config);
         }
     }

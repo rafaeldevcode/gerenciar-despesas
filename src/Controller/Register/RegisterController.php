@@ -15,7 +15,9 @@
 
         public function handle(ServerRequestInterface $request): ResponseInterface
         {
-            $html = Routers::route('register/index.php', []);
+            $html = Routers::route('register/index.php', [
+                'title' => 'Register',
+            ]);
 
             return new Response(200, [], $html);
         }

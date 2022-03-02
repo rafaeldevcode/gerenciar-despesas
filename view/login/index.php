@@ -1,17 +1,9 @@
-<?php 
-    use Painel\Services\Routers;
-?>
+<?php use Painel\Services\Routers; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" type="text/css" href="<?php Routers::asset('assets/css/style.css'); ?>">
-    <meta name="author" content="Rafael Vieira - github.com/rafaeldevcode">
-    <title>Login</title>
+    <?php require_once __DIR__ . '/../layouts/components/head.php'; ?>
 </head>
 <body>
     
@@ -22,7 +14,7 @@
                 <!-- <i class="fa-solid fa-user-unlock"></i> -->
             </div>
 
-            <?php require_once __DIR__ . '/../layouts/message.php' ?>
+            <?php require_once __DIR__ . '/../layouts/components/message.php' ?>
 
             <form action="/realiza-login" method="POST">
                 <div class="inputs-group down">

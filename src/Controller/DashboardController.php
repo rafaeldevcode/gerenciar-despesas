@@ -33,7 +33,8 @@
             $user = $this->userRepository->findOneBy(['id' => $_SESSION['user_id']]);
 
             $html = Routers::route('dashboard.php', [
-                'name' => $user->getName(),
+                'name'  => $user->getName(),
+                'title' => 'Dashboard',
             ]);
 
             return new Response(200, [], $html);

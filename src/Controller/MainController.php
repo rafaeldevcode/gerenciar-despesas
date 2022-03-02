@@ -16,7 +16,9 @@
         public function handle(ServerRequestInterface $request): ResponseInterface
         {
 
-            $html = Routers::route('main.php', []);
+            $html = Routers::route('main.php', [
+                'title' => 'Início',
+            ]);
 
             if(isset($_SESSION['logged'])){
                 return new Response(302, ['location' => '/dashboard']);

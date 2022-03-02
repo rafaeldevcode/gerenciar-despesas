@@ -16,7 +16,9 @@
         public function handle(ServerRequestInterface $request): ResponseInterface
         {
 
-            $html = Routers::route('404.php', []);
+            $html = Routers::route('404.php', [
+                'title' => 'Página não encontrada | 404',
+            ]);
 
             return new Response(200, [], $html);
         }
