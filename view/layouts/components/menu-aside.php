@@ -3,7 +3,13 @@
         <ul>
             <li>
                 <div class="icon">
-                    <i class="fa-solid fa-coins"></i>
+                    <i class="fa-solid fa-building"></i>
+                </div>
+                <a title="Adicionar nova empresa" href="/nova-empresa">Adicionar Empresa</a>
+            </li>
+            <li>
+                <div class="icon">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
                 </div>
                 <a title="Adicionar uma nova despesa" href="/nova-despesa">Adicionar Despesa</a>
             </li>
@@ -12,12 +18,6 @@
                     <i class="fa-solid fa-hand-holding-dollar"></i>
                 </div>
                 <a title="Adicionar novo ganho" href="/novo-ganho">Adicionar Ganho</a>
-            </li>
-            <li>
-                <div class="icon">
-                    <i class="fa-solid fa-building"></i>
-                </div>
-                <a title="Adicionar nova empresa" href="/nova-empresa">Adicionar Empresa</a>
             </li>
             <li>
                 <details>

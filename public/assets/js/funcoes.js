@@ -83,16 +83,23 @@ function validateField(field){
     }
 
     function customMessage(typeError){
+        let valueMissing = 'Por favor, preencha este campo!';
+
         const messages = {
             text: {
-                valueMissing: 'Por favor, preencha este campo!'
+                valueMissing: valueMissing
             },
             email: {
-                valueMissing: 'Por favor, preencha este campo!',
+                valueMissing: valueMissing,
                 typeMismatch: 'Por favor, preencha com um email válido!'
             },
             password: {
-                valueMissing: 'Por favor, preencha este campo!'
+                valueMissing: valueMissing
+            },
+            number: {
+                valueMissing: valueMissing,
+                typeMismatch: 'Este compo nâo deve conter somente números!',
+                stepMismatch: 'Este campo deve conter 4 digítos, Ex: 2022'
             }
         }
 
@@ -121,6 +128,7 @@ function customValidation(event){
 
 function validSelect(idSelect){
     document.querySelector('form').addEventListener('submit', event =>{
+
         let select = document.getElementById(idSelect);
         let spanError = select.parentNode.querySelector('span.error');
 

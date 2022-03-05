@@ -383,6 +383,7 @@ body{
 
 .nav ul li a,
 .nav ul li summary{
+    height: 25px;
     cursor: pointer;
     font-size: 1.1em;
     color: #FFF;

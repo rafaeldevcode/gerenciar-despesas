@@ -49,6 +49,33 @@
                 </div>
 
                 <div class="inputs-group down">
+                    <select class="input" name="month" id="month">
+                        <option value="defaut">Selecione o mês da despesa</option>
+                        <option value="Janeiro">Janeiro</option>
+                        <option value="Fevereiro">Fevereiro</option>
+                        <option value="Marco">Marco</option>
+                        <option value="Abril">Abril</option>
+                        <option value="Maio">Maio</option>
+                        <option value="Junho">Junho</option>
+                        <option value="Julho">Julho</option>
+                        <option value="Agosto">Agosto</option>
+                        <option value="Setembro">Setembro</option>
+                        <option value="Outubro">Outubro</option>
+                        <option value="Novembro">Novembro</option>
+                        <option value="Dezembro">Dezembro</option>
+                    </select>
+                    <span class="underline"></span>
+                    <span class="error"></span>
+                </div>
+
+                <div class="inputs-group down">
+                    <input required class="input" type="number" name="year" id="year" maxlength="4">
+                    <label class="input-label" for="year">Ano da despesa</label>
+                    <span class="underline"></span>
+                    <span class="error"></span>
+                </div>
+
+                <div class="inputs-group down">
                     <input class="input" type="file" name="tax-coupon" id="tax-coupon">
                     <label class="input-label" for="tax-coupon">Imagem do cupom fiscal</label>
                 </div>
@@ -69,6 +96,7 @@
         oppenMenu();
         getFields();
         validSelect('company');
+        validSelect('month');
     </script>
 
 </body>

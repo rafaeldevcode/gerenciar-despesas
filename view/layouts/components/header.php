@@ -3,7 +3,9 @@
 <header class="header">
     <section class="body-header">
         <span class="logo-header">
-            <img src="<?php Routers::asset('assets/images/logo.png') ?>" alt="Logo">
+            <a title="Tela principal" href="/dashboard">
+                <img src="<?php Routers::asset('assets/images/logo.png') ?>" alt="Logo">
+            </a>
         </span>
 
         <?php
