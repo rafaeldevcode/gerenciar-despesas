@@ -365,6 +365,12 @@ body{
 
 .nav ul li{
     margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.icon{
+    width: 25px;
 }
 
 .nav ul li i{
@@ -379,6 +385,13 @@ body{
     font-size: 1.1em;
     color: #FFF;
     font-weight: 700;
+    transition: all .3s;
+}
+
+.nav ul li a:hover,
+.nav ul li summary:hover{
+    color: var(--color-main);
+    font-size: 1em;
 }
 
 .nav ul li details ul{
@@ -387,12 +400,14 @@ body{
 
 .nav ul li summary{
     position: relative;
+    display: flex;
+    flex-direction: row;
 }
 
 .nav ul li summary::before{
     content: '';
     position: absolute;
-    right: 0px;
+    right: -20px;
     bottom: 50%;
 
     display: inline-block;

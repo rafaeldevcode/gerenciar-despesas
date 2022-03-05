@@ -18,7 +18,7 @@
             <img src="<?php Routers::asset('assets/images/emoji-coffe.png') ?>" alt="Emoji Coffe">
 
             <div class="inputs-group-btn down">
-                <a href="/nova-conta" class="inputs-btn secondary margin-auto" title="Adicionar nova conta">Nova conta</a>
+                <a href="/nova-despesa" class="inputs-btn secondary margin-auto" title="Adicionar nova despesa">Nova despesa</a>
             </div>
         </section>
     </main>

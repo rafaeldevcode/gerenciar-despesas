@@ -25,5 +25,7 @@
 
             $_SESSION['logged'] = true;
             $_SESSION['user_id'] = $userId;
+
+            session_cache_expire();
         }
     }
