@@ -1,5 +1,5 @@
 <?php 
-    use Painel\Services\Routers;
+    use Controle\Contas\Services\Routers;
 ?>
 
 <!DOCTYPE html>

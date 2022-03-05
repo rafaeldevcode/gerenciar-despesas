@@ -1,10 +1,11 @@
 <?php
 
-    namespace Painel\Routes;
+    namespace Controle\Contas\Routes;
 
-    use Painel\Controller\{DashboardController, MainController, NotFoundController};
-    use Painel\Controller\Login\{LoginController, LogoutController, RealizaLoginController};
-    use Painel\Controller\Register\{CreateRegisterController, RegisterController};
+    use Controle\Contas\Controller\{DashboardController, MainController, NotFoundController};
+    use Controle\Contas\Controller\Add\{AddCompanyController, AddExpensesController, AddGainController};
+    use Controle\Contas\Controller\Login\{LoginController, LogoutController, RealizaLoginController};
+    use Controle\Contas\Controller\Register\{CreateRegisterController, RegisterController};
 
     return [
         '/'               => MainController::class,
@@ -15,4 +16,9 @@
         '/salvar-usuario' => CreateRegisterController::class,
         '/logout'         => LogoutController::class,
         '/realiza-login'  => RealizaLoginController::class,
+
+        //// ADD ////
+        '/nova-despesa'   => AddExpensesController::class,
+        '/novo-ganho'     => AddGainController::class,
+        '/nova-empresa'   => AddCompanyController::class,
     ];

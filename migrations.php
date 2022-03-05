@@ -10,7 +10,7 @@
         ],
 
         'migrations_paths' => [
-            'Login\Register\Migrations' => 'src/Migrations',
+            'Controle\Contas\Migrations' => 'src/Migrations',
         ],
 
         'all_or_nothing' => true,

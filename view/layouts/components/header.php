@@ -1,4 +1,4 @@
-<?php use Painel\Services\Routers; ?>
+<?php use Controle\Contas\Services\Routers; ?>
 
 <header class="header">
     <section class="body-header">

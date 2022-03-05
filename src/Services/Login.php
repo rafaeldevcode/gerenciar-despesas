@@ -1,6 +1,6 @@
 <?php
 
-    namespace Painel\Services;
+    namespace Controle\Contas\Services;
 
     trait Login
     {

@@ -1,6 +1,6 @@
 <?php
 
-    namespace Painel\Helper;
+    namespace Controle\Contas\Helper;
 
     require_once __DIR__ . '/../../vendor/autoload.php';
 

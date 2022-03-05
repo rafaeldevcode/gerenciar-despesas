@@ -1,8 +1,8 @@
 <?php
 
-    namespace Painel\Controller\Login;
+    namespace Controle\Contas\Controller\Login;
 
-    use Painel\Services\Routers;
+    use Controle\Contas\Services\Routers;
     use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
     use Psr\Http\Server\RequestHandlerInterface;
     use Nyholm\Psr7\Response;

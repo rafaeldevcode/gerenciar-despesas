@@ -1,6 +1,6 @@
 <?php
 
-    namespace Painel\Entity;
+    namespace Controle\Contas\Entity;
 
     /**
      * @Entity
