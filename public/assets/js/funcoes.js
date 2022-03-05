@@ -1,3 +1,8 @@
+/////// ADICIONAR FOOTER NO FINAL DA PAGINA ////////////
+// if (document.querySelector('body').offsetHeight > window.innerHeight){
+    document.querySelector('footer').classList.add('footer-relative');
+// }
+
 function exibirPass(){
     document.getElementById('btn-eyes').addEventListener('click', ()=>{
         let pass = document.getElementById('password');
@@ -114,13 +119,20 @@ function customValidation(event){
     validation();
 }
 
-// document.querySelector('form').addEventListener('submit', (event)=>{
-//     let avatar = document.getElementById('avatar');
+function validSelect(idSelect){
+    document.querySelector('form').addEventListener('submit', event =>{
+        let select = document.getElementById(idSelect);
+        let spanError = select.parentNode.querySelector('span.error');
 
-//     if(avatar){
-//         avatar.classList.remove('fa-user-lock');
-//         avatar.classList.add('fa-user-unlock')
-//     }
+        if(select.value === 'defaut'){
+            spanError.classList.add('danger');
+            spanError.innerHTML = 'Por favor, selecione uma empresa para prosseguir!';
 
-//     event.preventDefault();
-// })
+            event.preventDefault();
+            return;
+        }else{
+            spanError.classList.remove('danger');
+            spanError.innerHTML = '';
+        }
+    });
+}

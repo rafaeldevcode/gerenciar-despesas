@@ -25,11 +25,6 @@ body{
     overflow-x: hidden;
 }
 
-/* /////// FORMATAÇÃO /////// */
-.margin-auto{
-    margin: auto;
-}
-
 .content{
     position: relative;
     width: 100%;
@@ -72,7 +67,7 @@ body{
 }
 
 .inputs-group:not(:first-child){
-    margin: 45px 0;
+    margin: 45px 0 0 0;
 }
 
 .input-label{
@@ -155,6 +150,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 20px;
 }
 
 .register{
@@ -269,6 +265,11 @@ body{
     padding: 30px;
     text-align: center;
     background: var(--border-color);
+    z-index: 2;
+}
+
+.footer-relative{
+    position: relative;
 }
 
 .footer p{
@@ -354,6 +355,7 @@ body{
 .menu-aside{
     position: absolute;
     transform: translateX(200px);
+    opacity: 0;
     right: 0;
     top: 0;
     width: 200px;
@@ -418,6 +420,64 @@ body{
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     border-top: 6px solid #FFF;
+}
+
+/* /////// FORMATAÇÃO /////// */
+.margin-auto{
+    margin: auto;
+}
+
+.form-fluid{
+    max-width: 800px;   
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title h1{
+    font-size: 1.8em;
+}
+
+input[type="file"]{
+    display: none;
+}
+
+input[type="file"] ~ .input-label{
+    width: 100%;
+    padding: 12px 5px;
+    border-radius: 4px 4px 0 0;
+    border: none;
+    background: #E8F0FE;
+    caret-color: var(--color-main);
+    font-size: 1.1em;
+    color: var(--color-secondary);
+    cursor: pointer;   
+    position: relative;
+    padding-left: 155px;
+    border-bottom: 2px solid var(--border-color);
+    margin-top: 25px;
+}
+
+input[type="file"] ~ .input-label::after{
+    content: 'Selecionar Arquivo';
+    width: 150px;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px 0 0 0;
+    background: var(--color-main);
+    color: #FFF;
+    left: 0;
+    top: 0;
+}
+
+.left{
+    display: flex;
+    justify-content: flex-end;
 }
 
 /* ///////// KEYFRAME //////// */

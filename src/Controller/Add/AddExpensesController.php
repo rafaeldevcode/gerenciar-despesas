@@ -13,7 +13,9 @@
 
         public function handle(ServerRequestInterface $request): ResponseInterface
         {
-            $html = Routers::route('add/add-expenses.php', []);
+            $html = Routers::route('add/add-expenses.php', [
+                'title' => 'Adicionar Despesa',
+            ]);
 
             return new Response(200, [], $html);
         }
