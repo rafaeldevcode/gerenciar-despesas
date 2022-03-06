@@ -13,7 +13,9 @@
 
         public function handle(ServerRequestInterface $request): ResponseInterface
         {
-            $html = Routers::route('add/add-company.php', []);
+            $html = Routers::route('add/add-company.php', [
+                'title' => 'Adicionar Empresa',
+            ]);
 
             return new Response(200, [], $html);
         }

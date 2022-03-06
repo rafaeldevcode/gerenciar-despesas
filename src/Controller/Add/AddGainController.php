@@ -13,7 +13,9 @@
 
         public function handle(ServerRequestInterface $request): ResponseInterface
         {
-            $html = Routers::route('add/add-gain.php', []);
+            $html = Routers::route('add/add-gain.php', [
+                'title' => 'Adicionar Ganho',
+            ]);
 
             return new Response(200, [], $html);
         }

@@ -21,7 +21,7 @@
 
             <?php require_once __DIR__ . '/../layouts/components/message.php' ?>
 
-            <form action="/salvar-despesa" method="POST">
+            <form action="/save-expenses" method="POST">
 
                 <div class="inputs-group down">
                     <select class="input" name="company" id="company">
