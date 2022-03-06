@@ -13,12 +13,12 @@
         '/login'          => LoginController::class,
         '/register'       => RegisterController::class,
         '/dashboard'      => DashboardController::class,
-        '/salvar-usuario' => CreateRegisterController::class,
+        '/save-user' => CreateRegisterController::class,
         '/logout'         => LogoutController::class,
-        '/realiza-login'  => RealizaLoginController::class,
+        '/login-to'  => RealizaLoginController::class,
 
         //// ADD ////
-        '/nova-despesa'   => AddExpensesController::class,
-        '/novo-ganho'     => AddGainController::class,
-        '/nova-empresa'   => AddCompanyController::class,
+        '/new-expenses'   => AddExpensesController::class,
+        '/new-gain'     => AddGainController::class,
+        '/new-company'   => AddCompanyController::class,
     ];

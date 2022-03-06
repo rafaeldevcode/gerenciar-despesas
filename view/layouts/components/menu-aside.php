@@ -9,19 +9,19 @@
                         <div class="icon">
                             <i class="fa-solid fa-building"></i>
                         </div>
-                        <a title="Adicionar nova empresa" href="/nova-empresa">Adicionar Empresa</a>
+                        <a title="Adicionar nova empresa" href="/new-company">Adicionar Empresa</a>
                     </li>
                     <li>
                         <div class="icon">
                             <i class="fa-solid fa-file-invoice-dollar"></i>
                         </div>
-                        <a title="Adicionar uma nova despesa" href="/nova-despesa">Adicionar Despesa</a>
+                        <a title="Adicionar uma nova despesa" href="/new-expenses">Adicionar Despesa</a>
                     </li>
                     <li>
                         <div class="icon">
                             <i class="fa-solid fa-hand-holding-dollar"></i>
                         </div>
-                        <a title="Adicionar novo ganho" href="/novo-ganho">Adicionar Ganho</a>
+                        <a title="Adicionar novo ganho" href="/new-gain">Adicionar Ganho</a>
                     </li>
                     <li>
                         <details>
@@ -33,13 +33,13 @@
                             </summary>
                             <ul>
                                 <li>
-                                    <a title="Relatório por mês" href="/relatorio/mensal">Mensal</a>
+                                    <a title="Relatório por mês" href="/reprot/monthly">Mensal</a>
                                 </li>
                                 <li>
-                                    <a title="Relatório Geral" href="/relatorio/geral">Geral</a>
+                                    <a title="Relatório Geral" href="/report/general">Geral</a>
                                 </li>
                                 <li>
-                                    <a title="Relatório por CNPJ" href="/relatorio/cnpj">Por CNPJ</a>
+                                    <a title="Relatório por CNPJ" href="/report/cnpj">Por CNPJ</a>
                                 </li>
                             </ul>
                         </details>

@@ -20,7 +20,7 @@
 
             <?php require_once __DIR__ . '/../layouts/components/message.php' ?>
 
-            <form action="/realiza-login" method="POST">
+            <form action="/login-to" method="POST">
                 <div class="inputs-group down">
                     <input required class="input" type="email" name="email" id="email">
                     <label class="input-label" for="email">Email</label>

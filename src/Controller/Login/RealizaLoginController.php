@@ -2,7 +2,7 @@
 
     namespace Controle\Contas\Controller\Login;
 
-    use Controle\Contas\Entity\User;
+    use Controle\Contas\Model\User;
     use Controle\Contas\Helper\EntityManagerFactory;
     use Controle\Contas\Services\{Login, Routers};
     use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};

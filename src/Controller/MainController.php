@@ -16,7 +16,7 @@
         public function handle(ServerRequestInterface $request): ResponseInterface
         {
 
-            $html = Routers::route('main.php', [
+            $html = Routers::route('index.php', [
                 'title' => 'Início',
             ]);
 

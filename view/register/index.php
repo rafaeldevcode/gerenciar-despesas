@@ -17,7 +17,7 @@
                 <i class="fa-solid fa-user-plus"></i>
             </div>
 
-            <form action="/salvar-usuario" method="POST">
+            <form action="/save-user" method="POST">
                 <div class="inputs-group down">
                     <input required class="input" type="text" name="name" id="name">
                     <label class="input-label" for="name">Nome</label>

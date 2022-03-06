@@ -1,6 +1,6 @@
 <?php
 
-    namespace Controle\Contas\Entity;
+    namespace Controle\Contas\Model;
 
     /**
      * @Entity
