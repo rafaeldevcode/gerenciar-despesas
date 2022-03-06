@@ -34,14 +34,14 @@
                 </div>
 
                 <div class="inputs-group down">
-                    <input required class="input" type="text" name="value" id="value">
-                    <label class="input-label" for="value">Valor ganho</label>
+                    <input required class="input" type="text" name="value_gain" id="value_gain">
+                    <label class="input-label" for="value_gain">Valor ganho</label>
                     <span class="underline"></span>
                     <span class="error"></span>
                 </div>
 
                 <div class="inputs-group down">
-                    <select class="input" name="typeGain" id="typeGain">
+                    <select class="input" name="type_gain" id="type_gain">
                         <option value="defaut">Selecione o tipo de ganho</option>
                         <option value="Servicos">Serviços prestados</option>
                         <option value="Bonificacao">Bonificação</option>
@@ -53,8 +53,8 @@
                 </div>
 
                 <div class="inputs-group down">
-                    <input class="input" type="file" name="receipt" id="receipt">
-                    <label class="input-label" for="receipt">Imagem do comprovante</label>
+                    <input class="input" type="file" name="receipt_gain" id="receipt_gain">
+                    <label class="input-label" for="receipt_gain">Imagem do comprovante</label>
                 </div>
 
                 <div class="inputs-group-btn left down">
@@ -73,7 +73,7 @@
         oppenMenu();
         getFields();
         validSelect('comapny')
-        validSelect('typeGain');
+        validSelect('type_gain');
     </script>
 
 </body>

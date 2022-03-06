@@ -42,8 +42,8 @@
                 </div>
 
                 <div class="inputs-group down">
-                    <input required class="input" type="text" name="value" id="value">
-                    <label class="input-label" for="value">Valor da despesa</label>
+                    <input required class="input" type="text" name="value_gain" id="value_gain">
+                    <label class="input-label" for="value_gain">Valor da despesa</label>
                     <span class="underline"></span>
                     <span class="error"></span>
                 </div>
@@ -69,7 +69,14 @@
                 </div>
 
                 <div class="inputs-group down">
-                    <select class="input" name="typeExpenses" id="typeExpenses">
+                    <input required class="input" type="number" name="year" id="year" maxlength="4">
+                    <label class="input-label" for="year">Ano da despesa</label>
+                    <span class="underline"></span>
+                    <span class="error"></span>
+                </div>
+
+                <div class="inputs-group down">
+                    <select class="input" name="type_expenses" id="type_expenses">
                         <option value="defaut">Selecione o tipo de depsesas</option>
                         <option value="Lazer">Lazer</option>
                         <option value="Saude">Saúde</option>
@@ -77,13 +84,6 @@
                         <option value="Bens">Aquisição de bens</option>
                         <option value="Outros">Outros</option>
                     </select>
-                    <span class="underline"></span>
-                    <span class="error"></span>
-                </div>
-
-                <div class="inputs-group down">
-                    <input required class="input" type="number" name="year" id="year" maxlength="4">
-                    <label class="input-label" for="year">Ano da despesa</label>
                     <span class="underline"></span>
                     <span class="error"></span>
                 </div>
@@ -110,7 +110,7 @@
         getFields();
         validSelect('company');
         validSelect('month');
-        validSelect('typeExpenses');
+        validSelect('type_expenses');
     </script>
 
 </body>

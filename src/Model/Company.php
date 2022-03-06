@@ -2,17 +2,16 @@
 
     namespace Controle\Contas\Model;
 
-    use Controle\Contas\Model\{Expenses, Gain};
     use Doctrine\Common\Collections\{ArrayCollection, Collection};
 
     /**
      * @Entity
      */
-    class User
+    class Company
     {
         /**
          * @Id
-         * @GeneratedValue,
+         * @Generatedvalu
          * @Column(type="integer")
          */
         private $id;
@@ -20,20 +19,20 @@
          * @Column(type="string")
          */
         private $name;
-                /**
-         * @Column(type="string")
-         */
-        private $email;
-                /**
-         * @Column(type="string")
-         */
-        private $pass;
         /**
-         * @OneToMany(targetEntity="Gain", mappedBy="user")
+         * @Column(type="string")
+         */
+        private $cnpj;
+        /**
+         * @Column(type="string")
+         */
+        private $logo_comapany;
+        /**
+         * @ManyToMany(targetEntity="Gain", inversedBy="company")
          */
         private $gain;
         /**
-         * @OneToMany(targetEntity="Expenses", mappedBy="user")
+         * @ManyToMany(targetEntity="Expenses", inversedBy="comapny")
          */
         private $expenses;
 
@@ -45,13 +44,7 @@
 
         public function getId(): int
         {
-            return $this->id;   
-        }
-
-        public function setName(string $name): self
-        {
-            $this->name = $name;
-            return $this;
+            return $this->id;
         }
 
         public function getName(): string
@@ -59,51 +52,53 @@
             return $this->name;
         }
 
-        public function setEmail(string $email): self
+        public function setname(string $name): self
         {
-            $this->email = $email;
+            $this->name = $name;
             return $this;
         }
 
-        public function getEmail(): string
+        public function getCNPJ(): string
         {
-            return $this->email;
+            return $this->cnpj;
         }
 
-        public function setPass(string $pass): self
+        public function setCNPJ(string $cnpj): self
         {
-            $this->pass = $pass;
+            $this->cnpj = $cnpj;
             return $this;
         }
 
-        public function getPass(): string
+        public function getLogoComapany(): string
         {
-            return $this->pass;
+            return $this->logo_comapany;
         }
 
-        public function verifyPass(string $passPure): bool
+        public function setLogoComapany(string $logo_comapany): self
         {
-            return password_verify($passPure, $this->pass);
+            $this->logo_comapany = $logo_comapany;
+            return $this;
         }
 
         /**
          * @return Gain[]
          */
-        public function getGains(): Collection
+        public function getGain(): Collection
         {
             return $this->gain;
         }
 
         public function addGain(Gain $gain): self
         {
+            if($this->gain->contains($gain)){
+                return $this;
+            }
+
             $this->gain->add($gain);
-            $gain->setUser($this);
+            $gain->addCompany($this);
             return $this;
         }
 
-        /**
-         * @return Expenses[]
-         */
         public function getExpenses(): Collection
         {
             return $this->expenses;
@@ -111,8 +106,12 @@
 
         public function addExpenses(Expenses $expenses): self
         {
+            if($this->expenses->contains($expenses)){
+                return $this;
+            }
+
             $this->expenses->add($expenses);
-            $expenses->setUser($this);
+            $expenses->addCompany($this);
             return $this;
         }
     }
