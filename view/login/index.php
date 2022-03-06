@@ -6,8 +6,12 @@
     <?php require_once __DIR__ . '/../layouts/components/head.php'; ?>
 </head>
 <body>
-    
+
+    <?php require_once __DIR__ . '/../layouts/components/header.php'; ?>
+
     <main class="content">
+        <?php require_once __DIR__ . '/../layouts/components/menu-aside.php'; ?>
+
         <section class="section-form">
             <div class="form-avatar">
                 <i class="fa-solid fa-user-lock" id="avatar"></i>
@@ -52,10 +56,13 @@
         </section>
     </main>
 
+    <?php require_once __DIR__ . '/../layouts/components/footer.php'; ?>
+
     <script type="text/javascript" src="https://kit.fontawesome.com/b0387bb217.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="<?php Routers::asset('assets/js/funcoes.js') ?>"></script>
 
     <script type="text/javascript">
+        oppenMenu();
         exibirPass();
         getFields();
     </script>

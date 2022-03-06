@@ -13,7 +13,7 @@
                 (strpos($path, 'register') === false) &&
                 (strpos($path, 'logout') === false) &&
                 ($path !== '/')){
-                    header('location: /login', true, 302);
+                    header('location: /', true, 302);
 
                     return;
             }
@@ -27,5 +27,10 @@
             $_SESSION['user_id'] = $userId;
 
             session_cache_expire();
+        }
+
+        public static function auth(): bool
+        {
+            return isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
         }
     }

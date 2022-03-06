@@ -69,6 +69,19 @@
                 </div>
 
                 <div class="inputs-group down">
+                    <select class="input" name="typeExpenses" id="typeExpenses">
+                        <option value="defaut">Selecione o tipo de depsesas</option>
+                        <option value="Lazer">Lazer</option>
+                        <option value="Saude">Saúde</option>
+                        <option value="Educacao">Educação</option>
+                        <option value="Bens">Aquisição de bens</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                    <span class="underline"></span>
+                    <span class="error"></span>
+                </div>
+
+                <div class="inputs-group down">
                     <input required class="input" type="number" name="year" id="year" maxlength="4">
                     <label class="input-label" for="year">Ano da despesa</label>
                     <span class="underline"></span>
@@ -97,6 +110,7 @@
         getFields();
         validSelect('company');
         validSelect('month');
+        validSelect('typeExpenses');
     </script>
 
 </body>

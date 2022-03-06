@@ -8,8 +8,6 @@
             </a>
         </span>
 
-        <?php
-            if(isset($_SESSION['logged'])):  require_once __DIR__ . '/menu.php'; endif
-        ?>
+        <?php require_once __DIR__ . '/menu.php';?>
     </section>
 </header>

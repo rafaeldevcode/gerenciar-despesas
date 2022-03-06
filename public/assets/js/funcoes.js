@@ -1,7 +1,7 @@
 /////// ADICIONAR FOOTER NO FINAL DA PAGINA ////////////
-// if (document.querySelector('body').offsetHeight > window.innerHeight){
+if (document.querySelector('body').offsetHeight > window.innerHeight){
     document.querySelector('footer').classList.add('footer-relative');
-// }
+}
 
 function exibirPass(){
     document.getElementById('btn-eyes').addEventListener('click', ()=>{
