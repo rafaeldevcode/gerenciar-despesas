@@ -3,9 +3,9 @@
     namespace Controle\Contas\Routes;
 
     use Controle\Contas\Controller\{DashboardController, MainController, NotFoundController};
-    use Controle\Contas\Controller\Company\CompanyController;
-    use Controle\Contas\Controller\Expenses\ExpensesController;
-    use Controle\Contas\Controller\Gain\GainController;
+    use Controle\Contas\Controller\Company\{CompanyController, CreateCompanyController};
+    use Controle\Contas\Controller\Expenses\{ExpensesController};
+    use Controle\Contas\Controller\Gain\{GainController};
     use Controle\Contas\Controller\Login\{LoginController, LogoutController, RealizaLoginController};
     use Controle\Contas\Controller\Register\{CreateRegisterController, RegisterController};
 
@@ -23,4 +23,7 @@
         '/new-expenses'   => ExpensesController::class,
         '/new-gain'       => GainController::class,
         '/new-company'    => CompanyController::class,
+
+        //// CREATE /////
+        '/save-company'   => CreateCompanyController::class
     ];
