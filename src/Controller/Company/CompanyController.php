@@ -1,20 +1,20 @@
 <?php
 
-    namespace Controle\Contas\Controller\Add;
+    namespace Controle\Contas\Controller\Company;
 
     use Controle\Contas\Services\{Routers};
     use Nyholm\Psr7\Response;
     use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
     use Psr\Http\Server\RequestHandlerInterface;
 
-    class AddGainController implements RequestHandlerInterface
+    class CompanyController implements RequestHandlerInterface
     {
         use Routers;
 
         public function handle(ServerRequestInterface $request): ResponseInterface
         {
-            $html = Routers::route('add/add-gain.php', [
-                'title' => 'Adicionar Ganho',
+            $html = Routers::route('add/add-company.php', [
+                'title' => 'Adicionar Empresa',
             ]);
 
             return new Response(200, [], $html);

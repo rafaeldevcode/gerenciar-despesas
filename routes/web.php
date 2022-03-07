@@ -3,7 +3,9 @@
     namespace Controle\Contas\Routes;
 
     use Controle\Contas\Controller\{DashboardController, MainController, NotFoundController};
-    use Controle\Contas\Controller\Add\{AddCompanyController, AddExpensesController, AddGainController};
+    use Controle\Contas\Controller\Company\CompanyController;
+    use Controle\Contas\Controller\Expenses\ExpensesController;
+    use Controle\Contas\Controller\Gain\GainController;
     use Controle\Contas\Controller\Login\{LoginController, LogoutController, RealizaLoginController};
     use Controle\Contas\Controller\Register\{CreateRegisterController, RegisterController};
 
@@ -13,12 +15,12 @@
         '/login'          => LoginController::class,
         '/register'       => RegisterController::class,
         '/dashboard'      => DashboardController::class,
-        '/save-user' => CreateRegisterController::class,
+        '/save-user'      => CreateRegisterController::class,
         '/logout'         => LogoutController::class,
-        '/login-to'  => RealizaLoginController::class,
+        '/login-to'       => RealizaLoginController::class,
 
-        //// ADD ////
-        '/new-expenses'   => AddExpensesController::class,
-        '/new-gain'     => AddGainController::class,
-        '/new-company'   => AddCompanyController::class,
+        //// INDEX ////
+        '/new-expenses'   => ExpensesController::class,
+        '/new-gain'       => GainController::class,
+        '/new-company'    => CompanyController::class,
     ];
