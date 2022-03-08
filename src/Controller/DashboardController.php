@@ -1,10 +1,10 @@
 <?php
 
-    namespace Controle\Contas\Controller;
+    namespace Manage\Expenses\Controller;
 
-    use Controle\Contas\Model\User;
-    use Controle\Contas\Helper\EntityManagerFactory;
-    use Controle\Contas\Services\Routers;
+    use Manage\Expenses\Model\User;
+    use Manage\Expenses\Helper\EntityManagerFactory;
+    use Manage\Expenses\Services\Routers;
     use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
     use Psr\Http\Server\RequestHandlerInterface;
     use Nyholm\Psr7\Response;

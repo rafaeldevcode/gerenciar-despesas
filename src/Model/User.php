@@ -1,8 +1,8 @@
 <?php
 
-    namespace Controle\Contas\Model;
+    namespace Manage\Expenses\Model;
 
-    use Controle\Contas\Model\{Expenses, Gain};
+    use Manage\Expenses\Model\{Expenses, Gain};
     use Doctrine\Common\Collections\{ArrayCollection, Collection};
 
     /**

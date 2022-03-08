@@ -1,6 +1,6 @@
 <?php
 
-    namespace Controle\Contas\Controller\Company;
+    namespace Manage\Expenses\Controller\Company;
 
     use Nyholm\Psr7\Response;
     use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};

@@ -1,7 +1,7 @@
 {
     "autoload": {
         "psr-4": {
-            "Controle\\Contas\\": "src/"
+            "Manage\\Expenses\\": "src/"
         }
     },
     "require": {

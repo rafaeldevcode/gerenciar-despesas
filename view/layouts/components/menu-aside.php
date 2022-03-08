@@ -1,4 +1,4 @@
-<?php use Controle\Contas\Services\Login; ?>
+<?php use Manage\Expenses\Services\Login; ?>
 
 <aside class="menu-aside">
     <nav class="nav">

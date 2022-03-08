@@ -1,6 +1,6 @@
 <?php
 
-    namespace Controle\Contas\Services;
+    namespace Manage\Expenses\Services;
 
     trait Routers
     {

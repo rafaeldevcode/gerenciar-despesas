@@ -49,6 +49,10 @@ class ComposerStaticInit474e97e9a3ff90b8cf15d9b9fc594ec0
             'Nyholm\\Psr7\\' => 12,
             'Nyholm\\Psr7Server\\' => 18,
         ),
+        'M' => 
+        array (
+            'Manage\\Expenses\\' => 16,
+        ),
         'L' => 
         array (
             'Laminas\\Code\\' => 13,
@@ -71,10 +75,6 @@ class ComposerStaticInit474e97e9a3ff90b8cf15d9b9fc594ec0
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
-        ),
-        'C' => 
-        array (
-            'Controle\\Contas\\' => 16,
         ),
     );
 
@@ -168,6 +168,10 @@ class ComposerStaticInit474e97e9a3ff90b8cf15d9b9fc594ec0
         array (
             0 => __DIR__ . '/..' . '/nyholm/psr7-server/src',
         ),
+        'Manage\\Expenses\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'Laminas\\Code\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-code/src',
@@ -225,10 +229,6 @@ class ComposerStaticInit474e97e9a3ff90b8cf15d9b9fc594ec0
             0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
             1 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
             2 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Common',
-        ),
-        'Controle\\Contas\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 

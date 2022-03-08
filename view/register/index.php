@@ -1,4 +1,4 @@
-<?php use Controle\Contas\Services\Routers; ?>
+<?php use Manage\Expenses\Services\Routers; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">

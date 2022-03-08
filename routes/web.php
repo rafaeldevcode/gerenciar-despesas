@@ -1,13 +1,13 @@
 <?php
 
-    namespace Controle\Contas\Routes;
+    namespace Manage\Expenses\Routes;
 
-    use Controle\Contas\Controller\{DashboardController, MainController, NotFoundController};
-    use Controle\Contas\Controller\Company\{CompanyController, CreateCompanyController};
-    use Controle\Contas\Controller\Expenses\{ExpensesController};
-    use Controle\Contas\Controller\Gain\{GainController};
-    use Controle\Contas\Controller\Login\{LoginController, LogoutController, RealizaLoginController};
-    use Controle\Contas\Controller\Register\{CreateRegisterController, RegisterController};
+    use Manage\Expenses\Controller\{DashboardController, MainController, NotFoundController};
+    use Manage\Expenses\Controller\Company\{CompanyController, CreateCompanyController};
+    use Manage\Expenses\Controller\Expenses\{ExpensesController};
+    use Manage\Expenses\Controller\Gain\{GainController};
+    use Manage\Expenses\Controller\Login\{LoginController, LogoutController, RealizaLoginController};
+    use Manage\Expenses\Controller\Register\{CreateRegisterController, RegisterController};
 
     return [
         '/'               => MainController::class,
