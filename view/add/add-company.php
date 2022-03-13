@@ -21,7 +21,7 @@
 
             <?php require_once __DIR__ . '/../layouts/components/message.php' ?>
 
-            <form action="/save-company" method="POST">
+            <form action="/save-company" method="POST" enctype="multipart/form-data">
 
                 <div class="inputs-group down">
                     <input required class="input" type="text" name="name" id="name">

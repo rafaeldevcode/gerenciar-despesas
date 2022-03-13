@@ -11,7 +11,7 @@
     {
         /**
          * @Id
-         * @Generatedvalu
+         * @GeneratedValue
          * @Column(type="integer")
          */
         private $id;
@@ -27,6 +27,10 @@
          * @Column(type="string")
          */
         private $logo_comapany;
+        /**
+         * @ManyToOne(targetEntity="User")
+         */
+        private $user;
         /**
          * @ManyToMany(targetEntity="Gain", inversedBy="company")
          */
@@ -112,6 +116,17 @@
 
             $this->expenses->add($expenses);
             $expenses->addCompany($this);
+            return $this;
+        }
+
+        public function getUser(): User
+        {
+            return $this->user;
+        }
+
+        public function setUser(User $user): self
+        {
+            $this->user = $user;
             return $this;
         }
     }

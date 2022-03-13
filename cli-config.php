@@ -3,7 +3,7 @@
     require_once __DIR__ . '/vendor/autoload.php';
 
     use Doctrine\ORM\Tools\Console\ConsoleRunner;
-    use Controle\Contas\Helper\EntityManagerFactory;
+    use Manage\Expenses\Helper\EntityManagerFactory;
 
     $entityManagerFactory = new EntityManagerFactory();
     $entityManager = $entityManagerFactory->getEntityManager();

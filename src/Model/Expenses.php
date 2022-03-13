@@ -124,7 +124,7 @@
             return $this;
         }
 
-        public function getser(): User
+        public function getUser(): User
         {
             return $this->user;
         }

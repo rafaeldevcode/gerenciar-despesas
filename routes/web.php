@@ -3,7 +3,7 @@
     namespace Manage\Expenses\Routes;
 
     use Manage\Expenses\Controller\{DashboardController, MainController, NotFoundController};
-    use Manage\Expenses\Controller\Company\{CompanyController, CreateCompanyController};
+    use Manage\Expenses\Controller\Company\{CompanyController, StoreCompanyController};
     use Manage\Expenses\Controller\Expenses\{ExpensesController};
     use Manage\Expenses\Controller\Gain\{GainController};
     use Manage\Expenses\Controller\Login\{LoginController, LogoutController, RealizaLoginController};
@@ -25,5 +25,5 @@
         '/new-company'    => CompanyController::class,
 
         //// CREATE /////
-        '/save-company'   => CreateCompanyController::class
+        '/save-company'   => StoreCompanyController::class,
     ];

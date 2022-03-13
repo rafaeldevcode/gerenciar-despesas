@@ -2,7 +2,7 @@
 
     namespace Manage\Expenses\Controller\Login;
 
-    use Manage\Expenses\Services\Routers;
+    use Manage\Expenses\Services\{Login, Routers};
     use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
     use Psr\Http\Server\RequestHandlerInterface;
     use Nyholm\Psr7\Response;
@@ -11,10 +11,14 @@
 
     class LoginController implements RequestHandlerInterface
     {
-        use Routers;
+        use Routers, Login;
 
         public function handle(ServerRequestInterface $request): ResponseInterface
         {
+            if(Login::auth() === true){
+                return new Response(302, ['location' => '/dashboard']);
+            }
+
             $html = Routers::route('login/index.php', [
                 'title' => 'Login',
             ]);

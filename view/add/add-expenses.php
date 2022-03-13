@@ -26,9 +26,12 @@
                 <div class="inputs-group down">
                     <select class="input" name="company" id="company">
                         <option value="defaut">Selecione uma empresa</option>
-                        <option value="item-2">Item 2</option>
-                        <option value="item-3">Item 3</option>
-                        <option value="item-4">Item 4</option>
+
+                        <?php
+                            foreach($company as $item){ ?>
+                                <option value="<?php echo $item->getId() ?>"><?php echo $item->getName() ?></option>
+                            <?php }
+                        ?>
                     </select>
                     <span class="underline"></span>
                     <span class="error"></span>

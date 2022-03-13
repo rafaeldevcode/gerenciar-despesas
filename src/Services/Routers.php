@@ -33,4 +33,42 @@
             $_SESSION['message'] = $message;
 
         }
+
+        public static function storage(object $file, string $type): array
+        {
+
+            if($type === 'image'){
+                $file_type = $file->getClientMediaType();
+                
+                if(($file_type !== 'image/png') &&
+                ($file_type !== 'image/jpg') &&
+                ($file_type !== 'image/jpeg') &&
+                ($file_type !== 'image/webp')){
+                    return [
+                        'status'  => false,
+                        'message' => 'Formato de arquivo inválido!',
+                    ];
+                }else{
+
+                    $filename = sprintf(
+                        '%s.%s',
+                        md5(time()),
+                        pathinfo($file->getClientFilename(), PATHINFO_EXTENSION),
+                    );
+                    $file->moveTo(__DIR__ . '/../../storage/uploads/'. $filename);
+
+                    return [
+                        'status'  => true,
+                        'message' => 'Arquivo slavo com sucesso!',
+                        'file'    => $filename,
+                    ];
+                }
+            }else{
+
+                return [
+                    'status'  => false,
+                    'message' => 'Tipo de entrado de inválido!',
+                ];
+            }
+        }
     }

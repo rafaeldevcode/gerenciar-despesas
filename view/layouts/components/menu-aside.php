@@ -56,7 +56,7 @@
                         </div>
                         <a title="Sair" href="/logout">Sair</a>
                     </li>
-            <?php } else{ ?> 
+            <?php } else { ?> 
                 <li>
                     <div class="icon">
                         <i class="fa-solid fa-right-to-bracket"></i>

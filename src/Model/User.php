@@ -36,11 +36,16 @@
          * @OneToMany(targetEntity="Expenses", mappedBy="user")
          */
         private $expenses;
+        /**
+         * @OneToMany(targetEntity="Company", mappedBy="user")
+         */
+        private $comapny;
 
         public function __construct()
         {
             $this->gain = new ArrayCollection();
             $this->expenses = new ArrayCollection();
+            $this->comapny = new ArrayCollection();
         }
 
         public function getId(): int
@@ -113,6 +118,21 @@
         {
             $this->expenses->add($expenses);
             $expenses->setUser($this);
+            return $this;
+        }
+
+        /**
+         * @return Comapny[]
+         */
+        public function getCompany(): Collection
+        {
+            return $this->comapny;
+        }
+
+        public function addCompany(Company $comapny): self
+        {
+            $this->comapny->add($comapny);
+            $comapny->setUser($this);
             return $this;
         }
     }
