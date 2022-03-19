@@ -1,6 +1,6 @@
 <?php
 
-    namespace Manage\Expenses\Controller\Company;
+    namespace Manage\Expenses\Controllers\Company;
 
     use Manage\Expenses\Services\{Routers};
     use Nyholm\Psr7\Response;

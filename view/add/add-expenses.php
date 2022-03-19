@@ -126,8 +126,8 @@
                 </div>
 
                 <div class="inputs-group down">
-                    <input class="input" type="file" name="tax-coupon" id="tax-coupon">
-                    <label class="input-label" for="tax-coupon">Imagem do cupom fiscal</label>
+                    <input class="input" type="file" name="tax_coupon" id="tax_coupon">
+                    <label class="input-label" for="tax_coupon">Imagem do cupom fiscal</label>
                 </div>
 
                 <div class="inputs-group-btn left down">

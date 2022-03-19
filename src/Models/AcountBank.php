@@ -1,15 +1,15 @@
 <?php
 
-namespace Manage\Expenses\Model;
+namespace Manage\Expenses\Models;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Manage\Expenses\Model\User;
+use Manage\Expenses\Models\User;
 
 /**
  * @Entity
  */
-class CreditCard
+class AcountBank
 {
     /**
      * @Id
@@ -24,19 +24,25 @@ class CreditCard
     /**
      * @Column(type="string")
      */
-    private $limit;
+    private $balance;
+    /**
+     * @Column(type="string")
+     */
+    private $logo_bank;
     /**
      * @ManyToOne(targetEntity="User")
      */
     private $user;
     /**
-     * @OneToMany(targetEntity="Expenses", mappedBy="credit_card")
+     * @OneToMany(targetEntity="Expenses", mappedBy="acount_bank")
      */
     private $expenses;
+    private $company;
 
     public function __construct()
     {
         $this->expenses = new ArrayCollection();
+        $this->company = new ArrayCollection();
     }
 
     public function getId(): int
@@ -55,14 +61,25 @@ class CreditCard
         return $this;
     }
 
-    public function getLimit(): string
+    public function getBalance(): string
     {
-        return $this->limit;
+        return $this->balance;
     }
 
-    public function setLimit(string $limit): self
+    public function setBalance(string $balance): self
     {
-        $this->limit = $limit;
+        $this->balance = $balance;
+        return $this;
+    }
+
+    public function getLogoBank(): string
+    {
+        return $this->logo_bank;
+    }
+
+    public function setLogobank(string $logo_bank): self
+    {
+        $this->logo_bank = $logo_bank;
         return $this;
     }
 
@@ -88,7 +105,26 @@ class CreditCard
     public function addExpenses(Expenses $expenses): self
     {
         $this->expenses->add($expenses);
-        $expenses->setCreditCard($this);
+        $expenses->setAcountBank($this);
+        return $this;
+    }
+
+    /**
+     * @return Comapny[]
+     */
+    public function getCompany(): Collection
+    {
+        return $this->company;
+    }
+
+    public function addComapny(Company $company): self
+    {
+        if($this->company->contains($company)){
+            return $this;
+        }
+
+        $this->company->add($company);
+        $company->addAcountBank($this);
         return $this;
     }
 }

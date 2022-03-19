@@ -1,6 +1,6 @@
 <?php
 
-    namespace Manage\Expenses\Controller\Register;
+    namespace Manage\Expenses\Controllers\Login;
 
     use Manage\Expenses\Services\Routers;
     use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
@@ -9,16 +9,14 @@
 
     require_once __DIR__ . '/../../../vendor/autoload.php';
 
-    class RegisterController implements RequestHandlerInterface
+    class LogoutController implements RequestHandlerInterface
     {
         use Routers;
 
         public function handle(ServerRequestInterface $request): ResponseInterface
         {
-            $html = Routers::route('register/index.php', [
-                'title' => 'Register',
-            ]);
+            session_destroy();
 
-            return new Response(200, [], $html);
+            return new Response(302, ['location' => '/login']);
         }
     }

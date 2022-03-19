@@ -1,6 +1,6 @@
 <?php
 
-    namespace Manage\Expenses\Model;
+    namespace Manage\Expenses\Models;
 
     use Doctrine\Common\Collections\{ArrayCollection, Collection};
 

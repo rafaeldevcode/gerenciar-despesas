@@ -13,6 +13,18 @@
                     </li>
                     <li>
                         <div class="icon">
+                            <i class="fa-solid fa-credit-card"></i>
+                        </div>
+                        <a title="Adicionar novo cartão" href="/new-card">Adicionar Cartão</a>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+                        <a title="Adicionar nova conta bancária" href="/new-bank">Adicionar Banco</a>
+                    </li>
+                    <li>
+                        <div class="icon">
                             <i class="fa-solid fa-file-invoice-dollar"></i>
                         </div>
                         <a title="Adicionar uma nova despesa" href="/new-expenses">Adicionar Despesa</a>

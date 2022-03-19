@@ -1,9 +1,9 @@
 <?php
 
-    namespace Manage\Expenses\Model;
+    namespace Manage\Expenses\Models;
 
     use Doctrine\Common\Collections\{ArrayCollection, Collection};
-use Manage\Expenses\Controller\Card;
+use Manage\Expenses\Controllers\Card;
 
     /**
      * @Entity

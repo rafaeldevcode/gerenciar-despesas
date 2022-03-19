@@ -1,8 +1,8 @@
 <?php
 
-    namespace Manage\Expenses\Controller;
+    namespace Manage\Expenses\Controllers;
 
-    use Manage\Expenses\Model\User;
+    use Manage\Expenses\Models\User;
     use Manage\Expenses\Helper\EntityManagerFactory;
     use Manage\Expenses\Services\Routers;
     use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};

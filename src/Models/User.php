@@ -1,8 +1,8 @@
 <?php
 
-namespace Manage\Expenses\Model;
+namespace Manage\Expenses\Models;
 
-use Manage\Expenses\Model\{Expenses, Gain, AcountBank, CreditCard};
+use Manage\Expenses\Models\{Expenses, Gain, AcountBank, CreditCard};
 use Doctrine\Common\Collections\{ArrayCollection, Collection};
 
 /**

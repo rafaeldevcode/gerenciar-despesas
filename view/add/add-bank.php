@@ -12,34 +12,34 @@
 
         <section class="section-form form-fluid">
             <div class="form-avatar">
-                <i class="fa-solid fa-building"></i>
+                <i class="fa-solid fa-building-columns"></i>
             </div>
 
             <div class="title">
-                <h1>Adicionar uma nova empresa</h1>
+                <h1>Adicionar uma nova conta bancária</h1>
             </div>
 
             <?php require_once __DIR__ . '/../layouts/components/message.php' ?>
 
-            <form action="/save-company" method="POST" enctype="multipart/form-data">
+            <form action="/save-bank" method="POST" enctype="multipart/form-data">
 
                 <div class="inputs-group down">
                     <input required class="input" type="text" name="name" id="name">
-                    <label class="input-label" for="name">Nome para fantasia</label>
+                    <label class="input-label" for="name">Nome do banco</label>
                     <span class="underline"></span>
                     <span class="error"></span>
                 </div>
 
                 <div class="inputs-group down">
-                    <input required class="input" type="text" name="cnpj" id="cnpj">
-                    <label class="input-label" for="cnpj">CNPJ da empresa</label>
+                    <input required class="input" type="text" name="balance" id="balance">
+                    <label class="input-label" for="balance">Saldo na conta</label>
                     <span class="underline"></span>
                     <span class="error"></span>
                 </div>
 
                 <div class="inputs-group down">
-                    <input class="input" type="file" name="logo_company" id="logo_company">
-                    <label class="input-label" for="logo_company">Imagem da empresa</label>
+                    <input class="input" type="file" name="logo_bank" id="logo_bank">
+                    <label class="input-label" for="logo_bank">Imagem do banco</label>
                 </div>
 
                 <div class="inputs-group-btn left down">

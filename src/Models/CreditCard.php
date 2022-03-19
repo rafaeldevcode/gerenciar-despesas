@@ -1,15 +1,15 @@
 <?php
 
-namespace Manage\Expenses\Model;
+namespace Manage\Expenses\Models;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Manage\Expenses\Model\User;
+use Manage\Expenses\Models\User;
 
 /**
  * @Entity
  */
-class AcountBank
+class CreditCard
 {
     /**
      * @Id
@@ -24,21 +24,19 @@ class AcountBank
     /**
      * @Column(type="string")
      */
-    private $balance;
+    private $limit;
     /**
      * @ManyToOne(targetEntity="User")
      */
     private $user;
     /**
-     * @OneToMany(targetEntity="Expenses", mappedBy="acount_bank")
+     * @OneToMany(targetEntity="Expenses", mappedBy="credit_card")
      */
     private $expenses;
-    private $company;
 
     public function __construct()
     {
         $this->expenses = new ArrayCollection();
-        $this->company = new ArrayCollection();
     }
 
     public function getId(): int
@@ -57,14 +55,14 @@ class AcountBank
         return $this;
     }
 
-    public function getBalance(): string
+    public function getLimit(): string
     {
-        return $this->balance;
+        return $this->limit;
     }
 
-    public function setBalance(string $balance): self
+    public function setLimit(string $limit): self
     {
-        $this->balance = $balance;
+        $this->limit = $limit;
         return $this;
     }
 
@@ -90,26 +88,7 @@ class AcountBank
     public function addExpenses(Expenses $expenses): self
     {
         $this->expenses->add($expenses);
-        $expenses->setAcountBank($this);
-        return $this;
-    }
-
-    /**
-     * @return Comapny[]
-     */
-    public function getCompany(): Collection
-    {
-        return $this->company;
-    }
-
-    public function addComapny(Company $company): self
-    {
-        if($this->company->contains($company)){
-            return $this;
-        }
-
-        $this->company->add($company);
-        $company->addAcountBank($this);
+        $expenses->setCreditCard($this);
         return $this;
     }
 }
