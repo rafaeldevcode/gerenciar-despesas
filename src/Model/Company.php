@@ -36,14 +36,19 @@
          */
         private $gain;
         /**
-         * @ManyToMany(targetEntity="Expenses", inversedBy="comapny")
+         * @ManyToMany(targetEntity="Expenses", inversedBy="company")
          */
         private $expenses;
+        /**
+         * ManyToMany(targetEntity="AcountBank", inversedBy="company")
+         */
+        private $acount_bank;
 
         public function __construct()
         {
             $this->gain = new ArrayCollection();
             $this->expenses = new ArrayCollection();
+            $this->acount_bank = new ArrayCollection();
         }
 
         public function getId(): int
@@ -127,6 +132,25 @@
         public function setUser(User $user): self
         {
             $this->user = $user;
+            return $this;
+        }
+
+        /**
+         * @return AcountBank[]
+         */
+        public function getAcountsBank(): Collection
+        {
+            return $this->acount_bank;
+        }
+
+        public function addAcountBank(AcountBank $acountBank): self
+        {
+            if($this->acount_bank->contains($acountBank)){
+                return $this;
+            }
+
+            $this->acount_bank->add($acountBank);
+            $acountBank->addComapny($this);
             return $this;
         }
     }

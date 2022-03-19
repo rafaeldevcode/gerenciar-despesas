@@ -3,6 +3,7 @@
     namespace Manage\Expenses\Model;
 
     use Doctrine\Common\Collections\{ArrayCollection, Collection};
+use Manage\Expenses\Controller\Card;
 
     /**
      * @Entity
@@ -48,6 +49,22 @@
          * @ManyToMany(targetEntity="Company")
          */
         private $comapany;
+        /**
+         * @Column(type="string")
+         */
+        private $payment_debit;
+        /**
+         * @Column(type="string")
+         */
+        private $payment_credit;
+        /**
+         * @OneToOne(targetEntity="CreditCard")
+         */
+        private $credit_card;
+        /**
+         * @OneToOne(targetEntity="AcountBank")
+         */
+        private $acount_bank;
 
         public function __construct()
         {
@@ -124,6 +141,28 @@
             return $this;
         }
 
+        public function getPaymentCredit(): string
+        {
+            return $this->payment_credit;
+        }
+
+        public function setPaymentCredit(string $payment_credit): self
+        {
+            $this->payment_credit = $payment_credit;
+            return $this;
+        }
+
+        public function getPaymentDebit(): string
+        {
+            return $this->payment_debit;
+        }
+
+        public function setPaymentDebit(string $payment_debit): self
+        {
+            $this->payment_debit = $payment_debit;
+            return $this;
+        }
+
         public function getUser(): User
         {
             return $this->user;
@@ -151,6 +190,28 @@
 
             $this->comapany->add($comapany);
             $comapany->addExpenses($this);
+            return $this;
+        }
+
+        public function getCreditCard(): CreditCard
+        {
+            return $this->credit_card;
+        }
+
+        public function setCreditCard(CreditCard $creditCard): self
+        {
+            $this->credit_card = $creditCard;
+            return $this;
+        }
+
+        public function getAcountBank(): AcountBank
+        {
+            return $this->acount_bank;
+        }
+
+        public function setAcountBank(AcountBank $acountBank): self
+        {
+            $this->acount_bank = $acountBank;
             return $this;
         }
     }

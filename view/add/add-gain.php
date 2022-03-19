@@ -56,6 +56,18 @@
                 </div>
 
                 <div class="inputs-group down">
+                    <select class="input" name="deposit_bank" id="deposit_bank">
+                        <option value="defaut">Selecione o banco de depósito</option>
+                        <option value="bank_1">Banco 1</option>
+                        <option value="bank_2">Banco 2</option>
+                        <option value="bank_3">Banco 3</option>
+                        <option value="bank_4">Banco 4</option>
+                    </select>
+                    <span class="underline"></span>
+                    <span class="error"></span>
+                </div>
+
+                <div class="inputs-group down">
                     <input class="input" type="file" name="receipt_gain" id="receipt_gain">
                     <label class="input-label" for="receipt_gain">Imagem do comprovante</label>
                 </div>
@@ -77,6 +89,7 @@
         getFields();
         validSelect('comapny')
         validSelect('type_gain');
+        validSelect('deposit_bank');
     </script>
 
 </body>

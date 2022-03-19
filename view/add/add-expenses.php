@@ -91,6 +91,40 @@
                     <span class="error"></span>
                 </div>
 
+                <div class="inputs-group-radio down">
+                    <div>
+                        <label for="payment_credit">Crédito</label>
+                        <input checked type="radio" id="payment_credit" name="form_payment" value="credit">
+                    </div>
+
+                    <div>
+                        <label for="payment_debit">Débito</label>
+                        <input type="radio" id="payment_debit" name="form_payment" value="debit">
+                    </div>
+                </div>
+
+                <div class="inputs-group hidden-select down">
+                    <select class="input" name="payment_credit" id="payment_credit">
+                        <option value="cartao_1">Cartão 1</option>
+                        <option value="cartao_2">Cartão 2</option>
+                        <option value="cartao_3">Cartão 3</option>
+                        <option value="cartao_4">Cartão 4</option>
+                    </select>
+                    <span class="underline"></span>
+                    <span class="error"></span>
+                </div>
+
+                <div class="inputs-group down">
+                    <select class="input" name="payment_debit" id="payment_debit">
+                        <option value="cartao_1">Banco 1</option>
+                        <option value="cartao_2">Banco 2</option>
+                        <option value="cartao_3">Banco 3</option>
+                        <option value="cartao_4">Banco 4</option>
+                    </select>
+                    <span class="underline"></span>
+                    <span class="error"></span>
+                </div>
+
                 <div class="inputs-group down">
                     <input class="input" type="file" name="tax-coupon" id="tax-coupon">
                     <label class="input-label" for="tax-coupon">Imagem do cupom fiscal</label>

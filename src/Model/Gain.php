@@ -26,7 +26,6 @@
          * @Column(type="string")
          */
         private $receipt_gain;
-
         /**
          * @ManyToOne(targetEntity="User")
          */
@@ -35,6 +34,10 @@
          * @ManyToMany(targetEntity="Company")
          */
         private $company;
+        /**
+         * @Column(type="string")
+         */
+        private $deposit_bank;
 
         public function __construct()
         {
@@ -76,6 +79,17 @@
         public function setReceiptGain(string $receipt_gain): self
         {
             $this->receipt_gain = $receipt_gain;
+            return $this;
+        }
+
+        public function getDepositBank(): string
+        {
+            return $this->deposit_bank;
+        }
+
+        public function setDepositBank(string $deposit_bank): self
+        {
+            $this->deposit_bank = $deposit_bank;
             return $this;
         }
 
