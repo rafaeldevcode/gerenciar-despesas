@@ -37,12 +37,15 @@ class AcountBank
      * @OneToMany(targetEntity="Expenses", mappedBy="acount_bank")
      */
     private $expenses;
-    private $company;
+    /**
+     * @OneToMany(targetEntity="Gain", mappedBy="acount_bank")
+     */
+    private $gain;
 
     public function __construct()
     {
         $this->expenses = new ArrayCollection();
-        $this->company = new ArrayCollection();
+        $this->gain = new ArrayCollection();
     }
 
     public function getId(): int
@@ -117,14 +120,18 @@ class AcountBank
         return $this->company;
     }
 
-    public function addComapny(Company $company): self
+    /**
+     * @return Gain[]
+     */
+    public function getGains(): Collection
     {
-        if($this->company->contains($company)){
-            return $this;
-        }
+        return $this->gain;
+    }
 
-        $this->company->add($company);
-        $company->addAcountBank($this);
+    public function add(Gain $gain): self
+    {
+        $this->gain->add($gain);
+        $gain->setAcountBank($this);
         return $this;
     }
 }

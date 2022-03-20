@@ -2,6 +2,9 @@
 
     namespace Manage\Expenses\Services;
 
+use Manage\Expenses\Helper\EntityManagerFactory;
+use Manage\Expenses\Models\User;
+
     trait Login
     {
         public static function verifyLogin(string $path): void
@@ -32,5 +35,15 @@
         public static function auth(): bool
         {
             return isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
+        }
+
+        public static function user(): object
+        {
+            $entityManagerFactory = new EntityManagerFactory();
+            $entityManager = $entityManagerFactory->getEntityManager();
+
+            $id = $_SESSION['user_id'];
+            
+            return $entityManager->find(User::class, $id);
         }
     }

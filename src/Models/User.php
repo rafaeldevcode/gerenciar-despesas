@@ -39,23 +39,23 @@ class User
     /**
      * @OneToMany(targetEntity="Company", mappedBy="user")
      */
-    private $comapny;
+    private $company;
     /**
      * OneToMany(targetEntity="CreditCard", mappedBy="user")
      */
-    private $card;
+    private $credit_card;
     /**
      * @OneToMany(targetEntity="AcountBank", mappedBy="user")
      */
-    private $bank;
+    private $acount_bank;
 
     public function __construct()
     {
         $this->gain = new ArrayCollection();
         $this->expenses = new ArrayCollection();
-        $this->comapny = new ArrayCollection();
-        $this->card = new ArrayCollection();
-        $this->bank = new ArrayCollection();
+        $this->company = new ArrayCollection();
+        $this->credit_card = new ArrayCollection();
+        $this->acount_bank = new ArrayCollection();
     }
 
     public function getId(): int
@@ -132,47 +132,47 @@ class User
     }
 
     /**
-     * @return Comapny[]
+     * @return Company[]
      */
     public function getCompany(): Collection
     {
-        return $this->comapny;
+        return $this->company;
     }
 
-    public function addCompany(Company $comapny): self
+    public function addCompany(Company $company): self
     {
-        $this->comapny->add($comapny);
-        $comapny->setUser($this);
+        $this->company->add($company);
+        $company->setUser($this);
         return $this;
     }
 
+    /**
+     * @return CreditCard[]
+     */
     public function getCreditCards(): Collection
     {
-        return $this->card;
+        return $this->credit_card;
     }
 
-    /**
-     * @return Card[]
-     */
-    public function addCreditCard(CreditCard $card): self
+    public function addCreditCard(CreditCard $credit_card): self
     {
-        $this->card->add($card);
-        $card->setUser($this);
+        $this->credit_card->add($credit_card);
+        $credit_card->setUser($this);
         return $this;
     }
 
+    /**
+     * @return AcountBank[]
+     */
     public function getAcountsBank(): Collection
     {
-        return $this->bank;
+        return $this->acount_bank;
     }
 
-    /**
-     * @return Bank[]
-     */
-    public function addAcountBank(AcountBank $bank): self
+    public function addAcountBank(AcountBank $acount_bank): self
     {
-        $this->bank->add($bank);
-        $bank->setUser($this);
+        $this->acount_bank->add($acount_bank);
+        $acount_bank->setUser($this);
         return $this;
     }
 }

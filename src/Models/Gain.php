@@ -17,6 +17,10 @@
         /**
          * @Column(type="string")
          */
+        private $name;
+        /**
+         * @Column(type="string")
+         */
         private $value_gain;
         /**
          * @Column(type="string")
@@ -31,22 +35,28 @@
          */
         private $user;
         /**
-         * @ManyToMany(targetEntity="Company")
+         * @ManyToOne(targetEntity="Company")
          */
         private $company;
         /**
-         * @Column(type="string")
+         * @ManyToOne(targetEntity="AcountBank")
          */
-        private $deposit_bank;
-
-        public function __construct()
-        {
-            $this->company = new ArrayCollection();
-        }
+        private $acount_bank;
 
         public function getId(): int
         {
             return $this->id;
+        }
+
+        public function getName(): string
+        {
+            return $this->name;
+        }
+
+        public function setName(string $name): self
+        {
+            $this->name = $name;
+            return $this;
         }
 
         public function getValueGain(): string
@@ -107,19 +117,25 @@
         /**
          * @return Company[]
          */
-        public function getCompany(): Collection
+        public function getCompany(): object
         {
             return $this->company;
         }
 
-        public function addCompany(Company $comapany): self
+        public function setCompany(Company $comapany): self
         {
-            if($this->company->contains($comapany)){
-                return $this;
-            }
+            $this->company = $comapany;
+            return $this;
+        }
 
-            $this->company->add($comapany);
-            $comapany->addGain($this);
+        public function getAcountBank(): array
+        {
+            return $this->acount_bank;
+        }
+
+        public function setAcountBank(AcountBank $acountBank): self
+        {
+            $this->acount_bank = $acountBank;
             return $this;
         }
     }

@@ -36,19 +36,28 @@
 
         public static function storage(object $file, string $type): array
         {
+            $file = empty($file->getClientFilename()) ? 'logo_default.png' : $file;
 
-            if($type === 'image'){
+            if($file === 'logo_default.png'):
+                return [
+                    'status'  => true,
+                    'message' => 'Nenhum arquivo selecionado, imagem padrão adicionado!',
+                    'file'    => $file,
+                ];
+            endif;
+
+            if($type === 'image'):
                 $file_type = $file->getClientMediaType();
                 
                 if(($file_type !== 'image/png') &&
                 ($file_type !== 'image/jpg') &&
                 ($file_type !== 'image/jpeg') &&
-                ($file_type !== 'image/webp')){
+                ($file_type !== 'image/webp')):
                     return [
                         'status'  => false,
                         'message' => 'Formato de arquivo inválido!',
                     ];
-                }else{
+                else:
 
                     $filename = sprintf(
                         '%s.%s',
@@ -59,16 +68,16 @@
 
                     return [
                         'status'  => true,
-                        'message' => 'Arquivo slavo com sucesso!',
+                        'message' => 'Arquivo salvo com sucesso!',
                         'file'    => $filename,
                     ];
-                }
-            }else{
+                endif;
+            else:
 
                 return [
                     'status'  => false,
                     'message' => 'Tipo de entrado de inválido!',
                 ];
-            }
+            endif;
         }
     }

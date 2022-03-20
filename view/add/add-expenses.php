@@ -21,7 +21,14 @@
 
             <?php require_once __DIR__ . '/../layouts/components/message.php' ?>
 
-            <form action="/save-expenses" method="POST">
+            <form action="/save-expenses" method="POST" enctype="multipart/form-data">
+
+                <div class="inputs-group down">
+                    <input required class="input" type="text" name="name" id="name">
+                    <label class="input-label" for="name">Nome para esta despesa</label>
+                    <span class="underline"></span>
+                    <span class="error"></span>
+                </div>
 
                 <div class="inputs-group down">
                     <select class="input" name="company" id="company">
@@ -33,13 +40,6 @@
                             <?php }
                         ?>
                     </select>
-                    <span class="underline"></span>
-                    <span class="error"></span>
-                </div>
-
-                <div class="inputs-group down">
-                    <input required class="input" type="text" name="name" id="name">
-                    <label class="input-label" for="name">Nome para esta despesa</label>
                     <span class="underline"></span>
                     <span class="error"></span>
                 </div>
@@ -116,10 +116,11 @@
 
                 <div class="inputs-group down">
                     <select class="input" name="payment_debit" id="payment_debit">
-                        <option value="cartao_1">Banco 1</option>
-                        <option value="cartao_2">Banco 2</option>
-                        <option value="cartao_3">Banco 3</option>
-                        <option value="cartao_4">Banco 4</option>
+                        <?php
+                            foreach($acounts as $item){ ?>
+                                <option value="<?php echo $item->getId() ?>"><?php echo $item->getName() ?></option>
+                            <?php }
+                        ?>
                     </select>
                     <span class="underline"></span>
                     <span class="error"></span>

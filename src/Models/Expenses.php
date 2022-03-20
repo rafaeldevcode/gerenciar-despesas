@@ -46,30 +46,21 @@ use Manage\Expenses\Controllers\Card;
          */
         private $user;
         /**
-         * @ManyToMany(targetEntity="Company")
+         * @OneToOne(targetEntity="Company")
          */
         private $comapany;
         /**
          * @Column(type="string")
          */
-        private $payment_debit;
+        private $payment;
         /**
          * @Column(type="string")
-         */
-        private $payment_credit;
-        /**
-         * @OneToOne(targetEntity="CreditCard")
          */
         private $credit_card;
         /**
          * @OneToOne(targetEntity="AcountBank")
          */
         private $acount_bank;
-
-        public function __construct()
-        {
-            $this->comapany =  new ArrayCollection();
-        }
 
         public function getId(): int{
             return $this->id;
@@ -141,25 +132,14 @@ use Manage\Expenses\Controllers\Card;
             return $this;
         }
 
-        public function getPaymentCredit(): string
+        public function getPayment(): string
         {
-            return $this->payment_credit;
+            return $this->payment;
         }
 
-        public function setPaymentCredit(string $payment_credit): self
+        public function setPayment(string $payment): self
         {
-            $this->payment_credit = $payment_credit;
-            return $this;
-        }
-
-        public function getPaymentDebit(): string
-        {
-            return $this->payment_debit;
-        }
-
-        public function setPaymentDebit(string $payment_debit): self
-        {
-            $this->payment_debit = $payment_debit;
+            $this->payment = $payment;
             return $this;
         }
 
@@ -174,22 +154,14 @@ use Manage\Expenses\Controllers\Card;
             return $this;
         }
 
-        /**
-         * @return Company[]
-         */
-        public function getCompany(): Collection
+        public function getCompany(): array
         {
             return $this->comapany;
         }
 
-        public function addCompany(Company $comapany): self
+        public function setCompany(Company $comapany): self
         {
-            if($this->comapany->contains($comapany)){
-                return $this;
-            }
-
-            $this->comapany->add($comapany);
-            $comapany->addExpenses($this);
+            $this->comapany = $comapany;
             return $this;
         }
 

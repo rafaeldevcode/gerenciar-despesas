@@ -4,7 +4,7 @@
 
     use Manage\Expenses\Models\User;
     use Manage\Expenses\Helper\EntityManagerFactory;
-    use Manage\Expenses\Services\Routers;
+    use Manage\Expenses\Services\{Login, Routers};
     use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
     use Psr\Http\Server\RequestHandlerInterface;
     use Nyholm\Psr7\Response;
@@ -16,22 +16,15 @@
         private $entityManager;
         private $userRepository;
 
-        use Routers;
-
-        public function __construct()
-        {
-            $entityManagerFactory = new EntityManagerFactory();
-            $this->entityManager = $entityManagerFactory->getEntityManager();
-            $this->userRepository = $this->entityManager->getRepository(User::class);
-        }
+        use Routers, Login;
 
         public function handle(ServerRequestInterface $request): ResponseInterface
         {
             /**
              * @var User $user
              */
-            $user = $this->userRepository->findOneBy(['id' => $_SESSION['user_id']]);
-
+            $user = Login::user();
+            
             $html = Routers::route('dashboard.php', [
                 'name'  => $user->getName(),
                 'title' => 'Dashboard',

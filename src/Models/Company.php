@@ -32,23 +32,18 @@
          */
         private $user;
         /**
-         * @ManyToMany(targetEntity="Gain", inversedBy="company")
+         * @OneToMany(targetEntity="Gain", mappedBy="company")
          */
-        private $gain;
+        private $deposit;
         /**
-         * @ManyToMany(targetEntity="Expenses", inversedBy="company")
+         * @OneToMany(targetEntity="Expenses", mappedBy="company")
          */
         private $expenses;
-        /**
-         * ManyToMany(targetEntity="AcountBank", inversedBy="company")
-         */
-        private $acount_bank;
 
         public function __construct()
         {
-            $this->gain = new ArrayCollection();
+            $this->deposit = new ArrayCollection();
             $this->expenses = new ArrayCollection();
-            $this->acount_bank = new ArrayCollection();
         }
 
         public function getId(): int
@@ -92,19 +87,15 @@
         /**
          * @return Gain[]
          */
-        public function getGain(): Collection
+        public function getDeposit(): Collection
         {
             return $this->gain;
         }
 
-        public function addGain(Gain $gain): self
+        public function addDeposit(Gain $deposit): self
         {
-            if($this->gain->contains($gain)){
-                return $this;
-            }
-
-            $this->gain->add($gain);
-            $gain->addCompany($this);
+            $this->deposit->add($deposit);
+            $deposit->setCompany($this);
             return $this;
         }
 
@@ -115,12 +106,8 @@
 
         public function addExpenses(Expenses $expenses): self
         {
-            if($this->expenses->contains($expenses)){
-                return $this;
-            }
-
             $this->expenses->add($expenses);
-            $expenses->addCompany($this);
+            $expenses->setCompany($this);
             return $this;
         }
 
@@ -141,16 +128,5 @@
         public function getAcountsBank(): Collection
         {
             return $this->acount_bank;
-        }
-
-        public function addAcountBank(AcountBank $acountBank): self
-        {
-            if($this->acount_bank->contains($acountBank)){
-                return $this;
-            }
-
-            $this->acount_bank->add($acountBank);
-            $acountBank->addComapny($this);
-            return $this;
         }
     }

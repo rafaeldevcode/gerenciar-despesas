@@ -21,7 +21,14 @@
 
             <?php require_once __DIR__ . '/../layouts/components/message.php' ?>
 
-            <form action="/save-gain" method="POST">
+            <form action="/save-gain" method="POST" enctype="multipart/form-data">
+            <div class="inputs-group down">
+                    <input required class="input" type="text" name="name" id="name">
+                    <label class="input-label" for="name">Nome para este ganho</label>
+                    <span class="underline"></span>
+                    <span class="error"></span>
+                </div>
+
                 <div class="inputs-group down">
                     <select class="input" name="company" id="company">
                         <option value="defaut">Selecione uma empresa</option>
@@ -56,12 +63,13 @@
                 </div>
 
                 <div class="inputs-group down">
-                    <select class="input" name="deposit_bank" id="deposit_bank">
+                    <select class="input" name="acount_bank" id="acount_bank">
                         <option value="defaut">Selecione o banco de depósito</option>
-                        <option value="bank_1">Banco 1</option>
-                        <option value="bank_2">Banco 2</option>
-                        <option value="bank_3">Banco 3</option>
-                        <option value="bank_4">Banco 4</option>
+                        <?php
+                            foreach($acounts as $item){ ?>
+                                <option value="<?php echo $item->getId() ?>"><?php echo $item->getName() ?></option>
+                            <?php }
+                        ?>
                     </select>
                     <span class="underline"></span>
                     <span class="error"></span>
@@ -89,7 +97,7 @@
         getFields();
         validSelect('comapny')
         validSelect('type_gain');
-        validSelect('deposit_bank');
+        validSelect('acount_bank');
     </script>
 
 </body>

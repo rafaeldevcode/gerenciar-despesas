@@ -1,17 +1,16 @@
 <?php
 
-namespace Manage\Expenses\Controllers\Gain;
+namespace Manage\Expenses\Controllers\Card;
 
-use Doctrine\ORM\Mapping\Entity;
 use Manage\Expenses\Helper\EntityManagerFactory;
-use Manage\Expenses\Models\Company;
+use Manage\Expenses\Models\CreditCard;
 use Manage\Expenses\Models\User;
 use Manage\Expenses\Services\{Login, Routers};
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
 use Psr\Http\Server\RequestHandlerInterface;
 
-class GainController implements RequestHandlerInterface
+class StoreCardController implements RequestHandlerInterface
 {
     use Routers, Login;
 
@@ -20,22 +19,28 @@ class GainController implements RequestHandlerInterface
     public function __construct()
     {
         $entityManagerFactory = new EntityManagerFactory();
-        $this->entityManager = $entityManagerFactory->getEntityManager();
+        $this->entityManager = $entityManagerFactory->getEntityManager();   
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
+        $data = $request->getParsedBody();
         /**
          * @var $user User
          */
         $user = $this->entityManager->find(User::class, Login::user()->getId());
 
-        $html = Routers::route('add/add-gain.php', [
-            'title'   => 'Adicionar Ganho',
-            'company' => $user->getCompany(),
-            'acounts' => $user->getAcountsBank(),
-        ]);
+        $card = new CreditCard();
+        $card->setName($data['name']);
+        $card->setLimit($data['limit']);
 
-        return new Response(200, [], $html);
+        $user->addCreditCard($card);
+
+        $this->entityManager->persist($card);
+        $this->entityManager->flush();
+
+        Routers::session('success', 'Cartão de crédito adicionado com sucesso!');
+
+        return new Response(302, ['location' => '/new-card']);
     }
 }

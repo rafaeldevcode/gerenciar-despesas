@@ -185,6 +185,7 @@ body{
     background: var(--color-main);
     color: #FFF;
     transition: background .4s, color .4s;
+    margin-top: 10px;
 
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -271,8 +272,8 @@ body{
 
 .footer{
     width: 100%;
-    position: absolute;
-    bottom: 40px;
+    /* position: absolute; */
+    margin-bottom: 40px;
     left: 0;
     padding: 30px;
     text-align: center;
