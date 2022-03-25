@@ -11,7 +11,7 @@
 
     require_once __DIR__ . '/../../../vendor/autoload.php';
 
-    class RealizaLoginController implements RequestHandlerInterface
+    class StoreLoginController implements RequestHandlerInterface
     {
         private $entityManager;
         private $userRepository;

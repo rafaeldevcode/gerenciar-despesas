@@ -6,6 +6,7 @@ use Manage\Expenses\Helper\EntityManagerFactory;
 use Manage\Expenses\Models\CreditCard;
 use Manage\Expenses\Models\User;
 use Manage\Expenses\Services\{Login, Routers};
+use Manage\Expenses\Services\Crud\Store;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
 use Psr\Http\Server\RequestHandlerInterface;
@@ -24,20 +25,8 @@ class StoreCardController implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $data = $request->getParsedBody();
-        /**
-         * @var $user User
-         */
-        $user = $this->entityManager->find(User::class, Login::user()->getId());
-
-        $card = new CreditCard();
-        $card->setName($data['name']);
-        $card->setLimit($data['limit']);
-
-        $user->addCreditCard($card);
-
-        $this->entityManager->persist($card);
-        $this->entityManager->flush();
+        $store = new Store();
+        $store->storeCard($request);
 
         Routers::session('success', 'Cartão de crédito adicionado com sucesso!');
 

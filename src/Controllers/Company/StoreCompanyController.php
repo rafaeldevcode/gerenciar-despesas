@@ -6,6 +6,7 @@ use Manage\Expenses\Helper\EntityManagerFactory;
 use Manage\Expenses\Models\Company;
 use Manage\Expenses\Models\User;
 use Manage\Expenses\Services\{Login, Routers};
+use Manage\Expenses\Services\Crud\Store;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -26,29 +27,15 @@ class StoreCompanyController implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        /**
-         * @var $user User
-         */
-        $user = $this->entityManager->find(User::class, Login::user()->getId());
-        $file = $request->getUploadedFiles()['logo_company'];
-        $save_image = Routers::storage($file, 'image');
+        $store = new Store();
+        $company = $store->storeCompany($request);
 
-        if($save_image['status'] === true){
-            $data = $request->getParsedBody();
-
-            $company = new Company();
-            $company->setname($data['name']);
-            $company->setCNPJ($data['cnpj']);
-            $company->setLogoComapany($save_image['file']);
-            $user->addCompany($company);
-
-            $this->entityManager->persist($company);
-            $this->entityManager->flush();
+        if($company['status'] === true){
 
             Routers::session('success', 'Empresa salva com sucesso!');
             return new Response(302, ['location' => '/new-company']);
         }else{
-            Routers::session('danger', $save_image['message']);
+            Routers::session('danger', $company['message']);
 
             return new Response(302, ['location' => '/new-company']);
         }

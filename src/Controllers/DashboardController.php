@@ -2,10 +2,9 @@
 
     namespace Manage\Expenses\Controllers;
 
-    use Manage\Expenses\Models\User;
-    use Manage\Expenses\Helper\EntityManagerFactory;
     use Manage\Expenses\Services\{Login, Routers};
-    use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
+use Manage\Expenses\Services\Crud\Store;
+use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
     use Psr\Http\Server\RequestHandlerInterface;
     use Nyholm\Psr7\Response;
 
@@ -20,10 +19,16 @@
 
         public function handle(ServerRequestInterface $request): ResponseInterface
         {
+            // /**
+            //  * @var User $user
+            //  */
+            // $user = Login::user();
+
+            $create = new Store();
             /**
-             * @var User $user
+             * @var $user User[]
              */
-            $user = Login::user();
+            $user = $create->get();
             
             $html = Routers::route('dashboard.php', [
                 'name'  => $user->getName(),

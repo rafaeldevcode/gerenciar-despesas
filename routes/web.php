@@ -10,8 +10,8 @@ use Manage\Expenses\Controllers\Card\StoreCardController;
 use Manage\Expenses\Controllers\Company\{CompanyController, StoreCompanyController};
 use Manage\Expenses\Controllers\Expenses\{ExpensesController, StoreExpensesController};
 use Manage\Expenses\Controllers\Gain\{GainController, StoreGainController};
-use Manage\Expenses\Controllers\Login\{LoginController, LogoutController, RealizaLoginController};
-use Manage\Expenses\Controllers\Register\{CreateRegisterController, RegisterController};
+use Manage\Expenses\Controllers\Login\{LoginController, LogoutController, StoreLoginController};
+use Manage\Expenses\Controllers\Register\{StoreRegisterController, RegisterController};
 
 return [
     '/'               => MainController::class,
@@ -19,9 +19,9 @@ return [
     '/login'          => LoginController::class,
     '/register'       => RegisterController::class,
     '/dashboard'      => DashboardController::class,
-    '/save-user'      => CreateRegisterController::class,
+    '/save-user'      => StoreRegisterController::class,
     '/logout'         => LogoutController::class,
-    '/login-to'       => RealizaLoginController::class,
+    '/login-to'       => StoreLoginController::class,
 
     //// INDEX ////
     '/new-expenses'   => ExpensesController::class,

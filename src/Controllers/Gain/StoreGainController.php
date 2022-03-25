@@ -9,6 +9,7 @@ use Manage\Expenses\Models\Company;
 use Manage\Expenses\Models\Gain;
 use Manage\Expenses\Models\User;
 use Manage\Expenses\Services\{Login, Routers};
+use Manage\Expenses\Services\Crud\Store;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
 use Psr\Http\Server\RequestHandlerInterface;
@@ -27,38 +28,16 @@ class StoreGainController implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        /**
-         * @var $user User
-         */
-        $user = $this->entityManager->find(User::class, Login::user()->getId());
-        $data = $request->getParsedBody();
-        $company = $this->entityManager->find(Company::class, $data['company']);
-        $bank = $this->entityManager->find(AcountBank::class, $data['acount_bank']);
-        $balance = $bank->getBalance() + $data['value_gain'];
+        $store = new Store();
+        $gain = $store->storeGain($request);
 
-        $file = $request->getUploadedFiles()['receipt_gain'];
-        $save_image = Routers::storage($file, 'image');
-
-        if($save_image['status'] === true):
-            $gain = new Gain();
-            $gain->setName($data['name']);
-            $gain->setValueGain($data['value_gain']);
-            $gain->setTypeGain($data['type_gain']);
-            $gain->setReceiptGain($save_image['file']);
-            $gain->setAcountBank($bank);
-            $gain->setCompany($company);
-
-            $bank->setBalance($balance);
-            $user->addGain($gain);
-
-            $this->entityManager->persist($gain);
-            $this->entityManager->flush();
+        if($gain['status'] === true):
 
             Routers::session('success', 'Ganho salvo com sucesso!');
             return new Response(302, ['location' => '/new-gain']);
 
         else:
-            Routers::session('danger', $save_image['message']);
+            Routers::session('danger', $gain['message']);
             return new Response(302, ['location' => '/new-gain']);
         endif;
     }

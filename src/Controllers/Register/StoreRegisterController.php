@@ -5,13 +5,14 @@
     use Manage\Expenses\Models\User;
     use Manage\Expenses\Helper\EntityManagerFactory;
     use Manage\Expenses\Services\{Login, Routers};
+    use Manage\Expenses\Services\Crud\{Store};
     use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
     use Psr\Http\Server\RequestHandlerInterface;
     use Nyholm\Psr7\Response;
 
     require_once __DIR__ . '/../../../vendor/autoload.php';
 
-    class CreateRegisterController implements RequestHandlerInterface
+    class StoreRegisterController implements RequestHandlerInterface
     {
         private $entityManager;
 
@@ -25,16 +26,11 @@
 
         public function handle(ServerRequestInterface $request): ResponseInterface
         {
-            $user = new User();
-            $data = $request->getParsedBody();
-            $passHash = password_hash($data['password'], PASSWORD_ARGON2I);
-
-            $user->setName($data['name']);
-            $user->setEmail($data['email']);
-            $user->setPass($passHash);
-            
-            $this->entityManager->persist($user);
-            $this->entityManager->flush();
+            $store = new Store();
+            /**
+             * @var $user User
+             */
+            $user = $store->storeUser($request);
             
             Login::login($user->getId());
 
