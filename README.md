@@ -57,10 +57,10 @@ Projeto desenvolvido com intuito de paerfeiçoar meu aprendizado em doctrine
 # Imagens
 
 <div align="center" style="dispaly: inline-block;">
-        <img align="center" alt="rafaeldevcode-login" height="auto" width="400" src="https://raw.githubusercontent.com/rafaeldevcode/painel-login/main/public/assets/images/painel-login.png">
-        <img align="center" alt="rafaeldevcode-login" height="auto" width="400" src="https://raw.githubusercontent.com/rafaeldevcode/painel-login/main/public/assets/images/painel-register.png">
+        <img align="center" alt="rafaeldevcode-login" height="auto" width="400" src="https://raw.githubusercontent.com/rafaeldevcode/painel-login-php/main/public/assets/images/painel-login.png">
+        <img align="center" alt="rafaeldevcode-login" height="auto" width="400" src="https://raw.githubusercontent.com/rafaeldevcode/painel-login-php/main/public/assets/images/painel-register.png">
 </div>
 
 <div align="center">
-    <img align="center" alt="rafaeldevcode-dashboard" height="auto" width="800" src="https://raw.githubusercontent.com/rafaeldevcode/painel-login/main/public/assets/images/dashboard.png">
+    <img align="center" alt="rafaeldevcode-dashboard" height="auto" width="800" src="https://raw.githubusercontent.com/rafaeldevcode/painel-login-php/main/public/assets/images/dashboard.png">
 </div>
