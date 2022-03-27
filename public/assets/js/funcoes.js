@@ -144,3 +144,39 @@ function validSelect(idSelect){
         }
     });
 }
+
+function alterFormPayment(){
+    let inputs = document.querySelectorAll('input[type="radio"]');
+    let payCred = document.getElementById('select-credit');
+    let payDebit = document.getElementById('select-debit');
+    
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].addEventListener('click', ()=>{
+
+                if(inputs[i].value === 'credit'){
+                    payCred.classList.remove('hidden-select');
+                    payDebit.classList.add('hidden-select');
+                }else{
+                    payDebit.classList.remove('hidden-select');
+                    payCred.classList.add('hidden-select');
+                }
+            })
+        }
+}
+
+/////// MASCARA PARA CNPJ /////////
+function maskCnpj() {
+    document.getElementById('cnpj').addEventListener('keyup', ()=>{
+        let cnpj = removerCaracter(document.getElementById('cnpj').value);
+        let mascara = `${cnpj.substr(0, 2)}.${cnpj.substr(2, 3)}.${cnpj.substr(5, 3)}/${cnpj.substr(8, 4)}-${cnpj.substr(12, 2)}`;
+
+        document.getElementById('cnpj').value = mascara;
+    });
+}
+
+/////// FUNÇÃO PARA REMOVER CARACTERE ///////
+function removerCaracter(telefone){
+    let regex = /[^0-9]/gi;
+    telefone = telefone.replace(regex, '');
+    return telefone;
+}

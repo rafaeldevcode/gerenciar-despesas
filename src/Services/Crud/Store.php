@@ -111,12 +111,18 @@ class Store extends EntityManager
 
     public function storeExpenses(object $request): array
     {
+        $data = $request->getParsedBody();
         /**
          * @var $user User
          */
         $user = $this->entityManager->find(User::class, Login::user()->getId());
-        $data = $request->getParsedBody();
+        /**
+         * @var $card CreditCard
+         */
         $card = $this->entityManager->find(CreditCard::class, $data['payment_credit']);
+        /**
+         * @var $bank AcountBank
+         */
         $bank = $this->entityManager->find(AcountBank::class, $data['payment_debit']);
 
         $file = $request->getUploadedFiles()['tax_coupon'];
@@ -130,13 +136,20 @@ class Store extends EntityManager
             $expenses->setYear($data['year']);
             $expenses->setTypeExpenses($data['type_expenses']);
             $expenses->setPayment($data['form_payment']);
+            $expenses->setTaxCupon($save_image['file']);
 
             if($data['form_payment'] === 'debit'):
-                $bank->setBalance($bank->getBalance() - $data(['value_expenses']));
-                $expenses->setAcountBank($bank);
+                $balance = $bank->getBalance();
+                $value_expenses = $data['value_expenses'];
+                
+                $bank->setBalance($balance - $value_expenses);
+                $bank->addExpenses($expenses);
             elseif($data['form_payment'] === 'credit'):
-                $card->setLimit($card->getLimit() - $data['value_expenses']);
-                $expenses->setCreditCard($card);
+                $limit = $card->getLimit();
+                $value_expenses = $data['value_expenses'];
+
+                $card->setLimit($limit - $value_expenses);
+                $card->addExpenses($expenses);
             endif;
 
             $user->addExpenses($expenses);

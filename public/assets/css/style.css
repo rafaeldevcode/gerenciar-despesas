@@ -29,6 +29,7 @@ body{
     position: relative;
     width: 100%;
     padding: 10px;
+    margin-bottom: 100px;
 }
 
 .section-form{
@@ -272,10 +273,10 @@ body{
 
 .footer{
     width: 100%;
-    /* position: absolute; */
-    margin-bottom: 40px;
+    position: fixed;
+    bottom: 40px;
     left: 0;
-    padding: 30px;
+    padding: 15px;
     text-align: center;
     background: var(--border-color);
     z-index: 2;
@@ -525,6 +526,11 @@ input[type="file"] ~ .input-label::after{
 
 .list-info ul li span{
     margin: 0 10px;
+}
+
+/* //// CLASS GERAL //// */
+.hidden-select{
+    display: none;
 }
 
 /* ///////// KEYFRAME //////// */

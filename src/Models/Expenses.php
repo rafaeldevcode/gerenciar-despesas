@@ -54,7 +54,7 @@ use Manage\Expenses\Controllers\Card;
          */
         private $payment;
         /**
-         * @Column(type="string")
+         * @OneToOne(targetEntity="CreditCard")
          */
         private $credit_card;
         /**

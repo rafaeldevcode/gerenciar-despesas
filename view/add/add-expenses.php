@@ -45,8 +45,8 @@
                 </div>
 
                 <div class="inputs-group down">
-                    <input required class="input" type="text" name="value_gain" id="value_gain">
-                    <label class="input-label" for="value_gain">Valor da despesa</label>
+                    <input required class="input" type="text" name="value_expenses" id="value_expenses">
+                    <label class="input-label" for="value_expenses">Valor da despesa</label>
                     <span class="underline"></span>
                     <span class="error"></span>
                 </div>
@@ -103,7 +103,7 @@
                     </div>
                 </div>
 
-                <div class="inputs-group hidden-select down">
+                <div class="inputs-group down" id="select-credit">
                     <select class="input" name="payment_credit" id="payment_credit">
                         <option value="cartao_1">Cartão 1</option>
                         <option value="cartao_2">Cartão 2</option>
@@ -114,7 +114,7 @@
                     <span class="error"></span>
                 </div>
 
-                <div class="inputs-group down">
+                <div class="inputs-group hidden-select down" id="select-debit">
                     <select class="input" name="payment_debit" id="payment_debit">
                         <?php
                             foreach($acounts as $item){ ?>
@@ -149,6 +149,7 @@
         validSelect('company');
         validSelect('month');
         validSelect('type_expenses');
+        alterFormPayment()
     </script>
 
 </body>

@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="inputs-group down">
-                    <input required class="input" type="text" name="cnpj" id="cnpj">
+                    <input required class="input" type="text" name="cnpj" id="cnpj" maxlength="18">
                     <label class="input-label" for="cnpj">CNPJ da empresa</label>
                     <span class="underline"></span>
                     <span class="error"></span>
@@ -57,6 +57,7 @@
     <script type="text/javascript">
         oppenMenu();
         getFields();
+        maskCnpj();
     </script>
 
 </body>
