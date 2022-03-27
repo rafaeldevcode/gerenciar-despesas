@@ -19,16 +19,15 @@ use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
 
         public function handle(ServerRequestInterface $request): ResponseInterface
         {
-            // /**
-            //  * @var User $user
-            //  */
-            // $user = Login::user();
+            /**
+             * @var User $user
+             */
+            $user = Login::user();
 
             $create = new Store();
             /**
              * @var $user User[]
              */
-            $user = $create->get();
             
             $html = Routers::route('dashboard.php', [
                 'name'  => $user->getName(),

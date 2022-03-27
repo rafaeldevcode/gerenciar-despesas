@@ -13,12 +13,12 @@ class Store extends EntityManager
 {
     use Routers, Login;
 
-    private $entityManage;
+    private $entityManager;
 
     public function __construct()
     {
         $entityManageFactory = new EntityManagerFactory();
-        $this->entityManage = $entityManageFactory->getEntityManager();
+        $this->entityManager = $entityManageFactory->getEntityManager();
     }
 
     public function storeUser(object $request): object
